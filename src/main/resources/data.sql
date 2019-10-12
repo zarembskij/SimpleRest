@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS requests;
+
+CREATE TABLE requests (
+  id INT AUTO_INCREMENT NOT NULL,
+  login VARCHAR(250) NOT NULL,
+  request_count INT NOT NULL,
+);
