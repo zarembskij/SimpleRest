@@ -3,12 +3,15 @@ package com.zarembski.nn.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.zarembski.nn.api.mapper.LocalDateTimeAdapter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -38,7 +41,8 @@ public class User implements Serializable {
 
     @JsonView(User.class)
     @JsonProperty("created_at")
-    private String createdAt;
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    private LocalDateTime createdAt;
 
     @JsonView(User.class)
     private String calculations;
